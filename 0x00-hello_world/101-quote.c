@@ -1,14 +1,9 @@
-/*
- * File: 101-quote.c
- * Auth: Brennan D Baraban
- */
-
-#include <unistd.h>
+#include <stdio.h>
 
 /**
- * main 
+ * main - Entry point
  *
- * Return: Always 1.
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
