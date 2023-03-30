@@ -16,24 +16,24 @@ char *_strncpy(char *dest, char *src, int n)
 	int i = 0;
 
 	s = dest;
-	while(*z != '\0')
+	while (*z != '\0')
 	{
 		m++;
 		z++;
 	}
 	if (n >=  m)
-	{		
-		while(*src != '\0' )
-		{	
+	{
+		while (*src != '\0')
+		{
 			*dest = *src;
 			src++;
 			dest++;
 		}
 		*dest = '\0';
 	}
-	if ( n <  m)
+	if (n <  m)
 	{
-		while ( (*src != '\0') && (i < n))
+		while (*src != '\0' && i < n)
 		{
 			*dest = *src;
 			src++;
