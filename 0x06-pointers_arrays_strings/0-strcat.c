@@ -4,10 +4,10 @@
  *_strcat - function take two pointer and point to value of two pointer
  *@dest: frist pointer
  *@src: second pointer
- *Retrun: char 
+ * Return:char
  */
 
-char *_strcat (char *dest, char *src)
+char *_strcat(char *dest, char *src)
 {
 	char *s = dest;
 
