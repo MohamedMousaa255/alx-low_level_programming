@@ -10,41 +10,16 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	char *s;
-	char *z = src;
-	int m = 0;
-	int i = 0;
+int i;
 
-	s = dest;
-	while (*z != '\0')
+	for (i = 0; i < n && *(src + i); i++)
 	{
-		m++;
-		z++;
+		*(dest + i) = *(src + i);
 	}
-	if (n >=  m)
+	for (; i < n; i++)
 	{
-		while (*src != '\0')
-		{
-			*dest = *src;
-			src++;
-			dest++;
-		}
-		while (*dest != '\0')
-		{
-			*dest = '\0';
-			dest++;
-		}
+	*(dest + i) = '\0';
 	}
-	if (n <  m)
-	{
-		while (*src != '\0' && i < n)
-		{
-			*dest = *src;
-			src++;
-			dest++;
-			i++;
-		}
-	}
+	return (dest);
 
-	return (s);
 }
