@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+
 /**
  *_strncpy - this function to compy string
  *@dest: frist pointer
