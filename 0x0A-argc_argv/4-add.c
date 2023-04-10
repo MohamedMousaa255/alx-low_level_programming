@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
 /**
  *main - main function
  *@argc: prameteri for argument
@@ -15,7 +16,7 @@ int main(int argc, char *argv[])
 	int j = 1;
 	int sum = 0;
 
-	if (argc < 2)
+	if (argc == 1)
 	{
 		printf("0\n");
 	}
@@ -44,4 +45,4 @@ int main(int argc, char *argv[])
 
 
 	return (0);
-
+}
