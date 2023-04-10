@@ -1,48 +1,44 @@
-#include "main.h"
 #include <stdio.h>
-#include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
+#include "main.h"
+
 /**
  *main - main function
  *@argc: prameteri for argument
  *@argv: pointer to array of argument array
  *Return: interger zero
  */
+
 int main(int argc, char *argv[])
 {
-	int i = 1;
-	int flag = 1;
-	int j = 1;
-	int sum = 0;
+	int i, j, length, sum;
+	char *ptr;
 
-	if (argc == 1)
-	{
-		printf("0\n");
-	}
+	if (argc < 2)
+	printf("0\n");
 	else
 	{
-		while (i < argc)
+		sum = 0;
+		for (i = 1; i < argc; i++)
 		{
-			if (!(isdigit(*argv[i])))
+			ptr = argv[i];
+			length = strlen(ptr);
+
+			for (j = 0; j < length; j++)
 			{
-				printf("Error\n");
-				return (1);
-				flag = 0;
+				if (isdigit(*(ptr + j)) == 0)
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
-			i++;
+
+			sum += atoi(argv[i]);
 		}
-		if (flag == 1)
-		{
-			while (j < argc)
-			{
-				sum += atoi(argv[j]);
-				j++;
-			}
-			printf("%d\n", sum);
-		}
+
+		printf("%d\n", sum);
 	}
-
-
 	return (0);
 }
