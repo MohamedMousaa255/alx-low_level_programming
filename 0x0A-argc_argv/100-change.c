@@ -1,52 +1,73 @@
 #include "main.h"
 #include <stdio.h>
-#include <ctype.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <stdbool.h>
+
 /**
- *main - main function
- *@argc: prameteri for argument
- *@argv: pointer to array of argument array
- *Return: interger zero
+ * coinConverter - Helper function that does all the mathematics
+ * @i: Passed in variable from main for calculations
+ * Return: The number of coins needed minimum for the passed in variable
+ */
+int coinConverter(int i)
+{
+	int count = 0;
+
+	while (i != 0)
+	{
+		if (i % 10 == 9 || i % 10 == 7)
+			i -= 2;
+		else if (i % 25 == 0)
+			i -= 25;
+		else if (i % 10 == 0)
+			i -= 10;
+		else if (i % 5 == 0)
+			i -= 5;
+			else if (i % 2 == 0)
+		{
+			if (i % 10 == 6)
+				i -= 1;
+			else
+				i -= 2;
+		}
+		else
+			i -= 1;
+
+		count++;
+	}
+
+	return (count);
+}
+
+/**
+ * main - Takes in exactly one argument for minimum coin count
+ * @argc: Number of command line arguments
+ * @argv: Array name
+ * Return: 0 if exactly 1 argument is passed into this program, 1 otherwise
  */
 int main(int argc, char *argv[])
 {
-	int N;
-	int R;
-	int n = 0;
-	int i = 0;
+	int i, coin;
+
+	coin = 0;
 
 	if (argc != 2)
 	{
-		printf("Erorr\n");
+		printf("Error\n");
 		return (1);
 	}
-	else if (argc == 2)
-	{	N = atoi(argv[1]);
-		if (N < 0)
-			printf("0\n");
-		else
-		{
-			while (R != 0)
-			{
-				if (i == 0)
-				{	n = n + (N / 25);
-					R = (N % 25), N = R;
-					i++; }
-				if (i == 1)
-				{	n = n + (N / 10);
-					R = (N % 10), N = R, i++; }
-				if (i == 2)
-				{	n = n + (N / 5);
-					R = (N % 5), N = R, i++; }
-				if (i == 3)
-				{	n = n + (N / 2);
-					R = (N % 2), N = R, i++; }
-				if (i == 4)
-				{	n = n + (N / 1);
-					R = (N % 1), N = R, i++; }
-			}
-			 printf("%d\n", n);
-		}
+
+	i = atoi(argv[1]);
+
+	if (i < 0)
+		printf("0\n");
+
+	else
+	{
+		coin = coinConverter(i);
+
+		printf("%d\n", coin);
 	}
+
 	return (0);
 }
