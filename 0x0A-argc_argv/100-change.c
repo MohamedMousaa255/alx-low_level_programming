@@ -1,51 +1,52 @@
+#include "main.h"
 #include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
-
 /**
- * main - prints the min number of coins to make change
- * for an amount of money
- * @argc: argument count
- * @argv: arguments
- * Return: 0
+ *main - main function
+ *@argc: prameteri for argument
+ *@argv: pointer to array of argument array
+ *Return: interger zero
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int total, count;
-	unsigned int i;
-	char *p;
-	int cents[] = {25, 10, 5, 2};
+	int N;
+	int R;
+	int n = 0;
+	int i = 0;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-
-	total = strtol(argv[1], &p, 10);
-	count = 0;
-
-	if (!*p)
-	{
-		while (total > 1)
+	else if (argc == 2)
+	{	N = atoi(argv[1]);
+		if (N < 0)
+			printf("0\n");
+		else
 		{
-			for (i = 0; i < sizeof(cents[i]); i++)
+			while (R != 0)
 			{
-				if (total >= cents[i])
-				{
-					count += total / cents[i];
-					total = total % cents[i];
-				}
+				if (i == 0)
+				{	n = n + (N / 25);
+					R = (N % 25), N = R;
+					i++; }
+				if (i == 1)
+				{	n = n + (N / 10);
+					R = (N % 10), N = R, i++; }
+				if (i == 2)
+				{	n = n + (N / 5);
+					R = (N % 5), N = R, i++; }
+				if (i == 3)
+				{	n = n + (N / 2);
+					R = (N % 2), N = R, i++; }
+				if (i == 4)
+				{	n = n + (N / 1);
+					R = (N % 1), N = R, i++; }
 			}
+			 printf("%d\n", n);
 		}
-		if (total == 1)
-			count++;
 	}
-	else
-	{
-		printf("Error\n");
-		return (1);
-	}
-
-	printf("%d\n", count);
 	return (0);
 }
