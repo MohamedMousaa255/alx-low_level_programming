@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
 			if (!(isdigit(*argv[i])))
 			{
 				printf("Error\n");
-				flag = 0;
 				return (1);
+				flag = 0;
 			}
 			i++;
 		}
@@ -44,4 +44,4 @@ int main(int argc, char *argv[])
 
 
 	return (0);
-}
+
