@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	{	N = atoi(argv[1]);
 		if (N < 0)
 			printf("0\n");
-		else 
+		else
 		{
 			while (R != 0)
 			{
@@ -34,20 +34,16 @@ int main(int argc, char *argv[])
 					i++; }
 				if (i == 1)
 				{	n = n + (N / 10);
-					R = (N % 10), N = R;
-					i++; }
+					R = (N % 10), N = R, i++; }
 				if (i == 2)
 				{	n = n + (N / 5);
-					R = (N % 5), N = R;
-					i++; }
+					R = (N % 5), N = R, i++; }
 				if (i == 3)
 				{	n = n + (N / 2);
-					R = (N % 2), N = R;
-					i++; }
+					R = (N % 2), N = R, i++; }
 				if (i == 4)
 				{	n = n + (N / 1);
-					R = (N % 1), N = R;
-					i++; }
+					R = (N % 1), N = R, i++; }
 			}
 			 printf("%d\n", n);
 		}
