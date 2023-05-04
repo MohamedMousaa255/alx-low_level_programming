@@ -9,7 +9,7 @@
 unsigned int binary_to_uint(const char *b)
 {
 	int legth = 0;
-	int i ;
+	int i;
 	int j = 0;
 	unsigned int value;
 	unsigned int sum = 0;
@@ -21,23 +21,23 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 		}
 		legth++;
-		
+
 	}
-	legth =legth-1;
+	legth = legth - 1;
 	for (i = 0; i <= legth; i++)
-	{	
-		if (b[legth-i] == '1')
+	{
+		if (b[legth - i] == '1')
 		{
 			value = 0;
 			for (j = 0; j <= i ; j++)
 			{
 				if (j == 0)
-					value =1;
-				else 
+					value = 1;
+				else
 					value = value * 2;
 			}
 			sum = sum + value;
-			
+
 		}
 	}
 	return (sum);
