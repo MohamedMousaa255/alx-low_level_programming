@@ -11,8 +11,8 @@ unsigned int binary_to_uint(const char *b)
 	int legth = 0;
 	int i;
 	int j = 0;
-	unsigned int value;
-	unsigned int sum = 0;
+	unsigned long int value;
+	unsigned long  int sum = 0;
 
 	while (b[legth] != '\0')
 	{
